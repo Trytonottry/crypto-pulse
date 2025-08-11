@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CryptoPulse</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>CryptoPulse 💎</h1>
+    <p>Ваш персональный Web3-мониторинг</p>
+
+    <h2>Топ-10 монет</h2>
+    <table>
+      <tr><th>Монета</th><th>Цена</th><th>Изм. 24ч</th></tr>
+      {% for p in prices %}
+      <tr>
+        <td>{{ p.name }} ({{ p.symbol }})</td>
+        <td>${{ "%.2f"|format(p.price) }}</td>
+        <td class="{{ 'up' if p.change_24h > 0 else 'down' }}">
+          {{ "%.2f"|format(p.change_24h) }}%
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</body>
+</html>

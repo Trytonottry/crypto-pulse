@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NFT Drops</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🔥 NFT Drops</h1>
+    {% for d in drops %}
+    <div class="drop">
+      <h3>{{ d.name }}</h3>
+      <p>📅 {{ d.date }} | ⛓️ {{ d.chain }}</p>
+      <p>💰 {{ d.price }}</p>
+      <a href="{{ d.link }}" target="_blank">Перейти</a>
+    </div>
+    {% endfor %}
+  </div>
+</body>
+</html>
